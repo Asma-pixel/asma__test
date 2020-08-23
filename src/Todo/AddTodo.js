@@ -10,15 +10,24 @@ function AddTodo({ onCreate }) {
     }
   }
   return (
-    <form className="adtodos" onSubmit={submitHandler}>
-      <input
-        className="text-back"
-        type="text"
-        value={value}
-        onChange={(event) => setValue(event.target.value)}
-      />
-      <button className="add">Add doings</button>
-    </form>
+    <div className="container">
+      <form className="adtodos" onSubmit={submitHandler}>
+        <input
+          id="textadd"
+          className="text-back"
+          type="text"
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
+        />
+        <button id="botadd" className="add">
+          Add doings
+        </button>
+      </form>
+      <span id="err" className="error-fix">
+        {" "}
+        Ашипка{" "}
+      </span>
+    </div>
   );
 }
 AddTodo.propTypes = {

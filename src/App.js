@@ -20,23 +20,34 @@ function App() {
     );
   }
   function removeTodo(id) {
-    setTodos(todos.filter((todo) => todo.id != id));
+    setTodos(todos.filter((todo) => todo.id !== id));
   }
   function addTodo(title) {
-    setTodos(
-      todos.concat([
-        {
-          title,
-          id: Date.now(),
-          comleted: false,
-        },
-      ])
-    );
+    let check = title.replace(/ /g, "");
+    if (check !== "") {
+      document.getElementById("textadd").classList.remove("text-back-red");
+      document.getElementById("botadd").classList.remove("text-back-red");
+      document.getElementById("err").classList.remove("error");
+      document.getElementById("err").classList.add("error-fix");
+      setTodos(
+        todos.concat([
+          {
+            title,
+            id: Date.now(),
+            comleted: false,
+          },
+        ])
+      );
+    } else {
+      document.getElementById("textadd").classList.add("text-back-red");
+      document.getElementById("botadd").classList.add("text-back-red");
+      document.getElementById("err").classList.remove("error-fix");
+      document.getElementById("err").classList.add("error");
+    }
   }
   return (
     <Context.Provider value={{ removeTodo }}>
       <div className="wrapper">
-        <h1>React learning</h1>
         <AddTodo onCreate={addTodo} />
         <TodoList todos={todos} onToggle={toggleTodo} />
       </div>

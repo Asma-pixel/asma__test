@@ -40,9 +40,16 @@ code {
     #0f2b59;
   border-radius: 15px;
 }
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+}
 .addtodos {
 }
 .text-back {
+  height: 31px;
   font-family: sans-serif;
   color: white;
   padding: 5px;
@@ -53,16 +60,34 @@ code {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+
 .add {
+  height: 100%;
   font-family: sans-serif;
   color: white;
-  padding: 5px;
+  padding: 13px;
   background: #3c6ebe;
   border-radius: 4px;
   outline: none;
   border: 1px solid white;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+.add:hover {
+  background: #154592;
+}
+.add:active {
+  background: #051d44;
+}
+.text-back-red {
+  border: 1px solid red;
+}
+.error-fix {
+  display: none;
+}
+.error {
+  display: flex;
+  color: red;
 }
 .list {
   border-top: 3px solid;
