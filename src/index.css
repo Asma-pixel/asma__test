@@ -45,27 +45,38 @@ code {
   justify-content: space-around;
   align-items: center;
   margin-bottom: 30px;
+  box-sizing: border-box;
 }
+.container-error {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+  height: 40px;
+}
+
 .addtodos {
 }
-.text-back {
-  height: 31px;
+.text {
   font-family: sans-serif;
   color: white;
-  padding: 5px;
   background-color: #7391c2;
   border-radius: 4px;
   outline: none;
   border: 1px solid white;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  height: 31px;
+  padding: 3px;
 }
-
+.container-error .text {
+  border: 1px solid red;
+}
 .add {
-  height: 100%;
+  padding: 11px;
   font-family: sans-serif;
   color: white;
-  padding: 13px;
   background: #3c6ebe;
   border-radius: 4px;
   outline: none;
@@ -79,15 +90,15 @@ code {
 .add:active {
   background: #051d44;
 }
-.text-back-red {
+.container-error .add {
   border: 1px solid red;
 }
-.error-fix {
+.err {
   display: none;
-}
-.error {
-  display: flex;
   color: red;
+}
+.container-error .err {
+  display: flex;
 }
 .list {
   border-top: 3px solid;

@@ -1,32 +1,30 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 function AddTodo({ onCreate }) {
+  const [Valid, setValid] = useState(true);
   const [value, setValue] = useState("");
   function submitHandler(event) {
     event.preventDefault();
-    if (value.trim) {
-      onCreate(value);
+    if (value.replace(/\s+/g, "") !== "") {
+      onCreate(value.trim());
       setValue("");
+      setValid(true);
+    } else {
+      setValid(false);
     }
   }
   return (
-    <div className="container">
+    <div className={Valid ? "container" : "container-error"}>
       <form className="adtodos" onSubmit={submitHandler}>
         <input
-          id="textadd"
-          className="text-back"
+          className="text"
           type="text"
           value={value}
           onChange={(event) => setValue(event.target.value)}
         />
-        <button id="botadd" className="add">
-          Add doings
-        </button>
+        <button className="add">Add doings</button>
       </form>
-      <span id="err" className="error-fix">
-        {" "}
-        Ашипка{" "}
-      </span>
+      <span className="err"> Не добавляй пустоту :'( </span>
     </div>
   );
 }
